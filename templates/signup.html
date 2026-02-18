@@ -1,0 +1,161 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #4b3f72;
+            color: #ffffff;
+            padding: 20px;
+            font-size: 24px;
+            text-align: left;
+        }
+
+        /* Signup Form Container */
+        .signup-container {
+            background-color: #ffffff;
+            padding: 30px;
+            max-width: 500px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #4b3f72;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"],
+        textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #4b3f72;
+            color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff5e57;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            // Get form field values
+            const pan = document.forms["signupForm"]["pan"].value;
+            const aadhar = document.forms["signupForm"]["aadhar"].value;
+            const mobile = document.forms["signupForm"]["mobile"].value;
+
+            // Validate PAN format (5 characters followed by 5 digits)
+            const panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            if (!panPattern.test(pan)) {
+                alert("PAN must be 5 characters followed by 5 digits (e.g., ABCDE1234F).");
+                return false;
+            }
+
+            // Validate Aadhaar format (12 digits)
+            const aadharPattern = /^[0-9]{12}$/;
+            if (!aadharPattern.test(aadhar)) {
+                alert("Aadhaar number must be exactly 12 digits.");
+                return false;
+            }
+
+            // Validate Mobile number format (10 digits)
+            const mobilePattern = /^[0-9]{10}$/;
+            if (!mobilePattern.test(mobile)) {
+                alert("Mobile number must be exactly 10 digits.");
+                return false;
+            }
+
+            // Display success pop-up
+            alert("Your data has been successfully submitted. We will notify you via email.");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>Sign Up</header>
+    <div class="signup-container">
+        <h2>APPLY YOUR CREDIT CARD</h2>
+        <form name="signupForm" action="/signup" method="post" onsubmit="return validateForm()">
+            <label for="username">Name:</label>
+            <input type="text" name="username" required>
+
+            <label for="father_name">Father's Name:</label>
+            <input type="text" name="father_name" required>
+
+            <label for="mother_name">Mother's Name:</label>
+            <input type="text" name="mother_name" required>
+
+            <label for="fd">FD Amount:</label>
+            <input type="text" name="fd" required>
+
+            <label for="address">Address:</label>
+            <textarea name="address" rows="3" required></textarea>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+
+
+            <label for="aadhar">Aadhaar Number:</label>
+            <input type="text" name="aadhar" required>
+
+            <label for="pan">PAN Number:</label>
+            <input type="text" name="pan" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" name="mobile" required>
+
+            <label for="pan_photo">Upload PAN Card Photo:</label>
+            <input type="file" name="pan_photo" accept="image/*" required>
+
+            <label for="aadhar_photo">Upload Aadhaar Card Photo:</label>
+            <input type="file" name="aadhar_photo" accept="image/*" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

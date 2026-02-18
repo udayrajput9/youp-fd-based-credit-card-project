@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youp Credit Card on FD</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #4b3f72;
+  color: white;
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.header nav ul li {
+  margin-right: 20px;
+}
+
+.header nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  background: linear-gradient(to right, #6a3093, #a044ff);
+  color: white;
+}
+
+.hero-content h2 {
+  font-size: 36px;
+}
+
+.apply-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff5e57;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.apply-btn:hover {
+  background-color: #ff1a1a;
+}
+
+.card-container {
+  position: relative;
+}
+
+#credit-card {
+  width: 350px;
+  transition: transform 1s ease-in-out;
+}
+
+#credit-card:hover {
+  transform: rotateY(360deg);
+}
+
+.features {
+  padding: 50px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.feature-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.feature-item {
+  flex: 1;
+  padding: 20px;
+}
+
+.apply {
+  padding: 50px;
+  background-color: #4b3f72;
+  color: white;
+  text-align: center;
+}
+
+.footer {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* Add the fade-out animation */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+#credit-card {
+  width: 350px;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* Add a class for hiding the image */
+.hidden {
+  animation: fadeOut 1s forwards;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+
+
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h1>Youp</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/signup">Apply Now</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/signin">Sign In!</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Animated Credit Card -->
+  <section class="hero">
+    <div class="card-container">
+      <img id="credit-card" src="{{ url_for('static', filename='images/creditcard.png') }}" alt="Credit Card Image">
+    </div>
+    <div class="hero-content">
+      <h2>Unlock the Power of Youp Credit Card on FD</h2>
+      <p>Enjoy an interest rate of 8% on your FD and exclusive rewards with every swipe.</p>
+      <a href="#apply" class="apply-btn">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Why Choose Youp Credit Card?</h2>
+    <div class="feature-list">
+      <div class="feature-item">
+        <h3>8% Interest on FD</h3>
+        <p>Secure your funds while earning a high interest rate on your Fixed Deposit.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Credit Limit Up to 90%</h3>
+        <p>Get a credit limit up to 90% of your FD amount.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Zero Annual Fees</h3>
+        <p>No annual maintenance charges or hidden fees.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Exclusive Cashback</h3>
+        <p>Earn cashback and rewards with every swipe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apply Section -->
+  <section id="apply" class="apply">
+    <h2>Apply for Youp Credit Card</h2>
+    <p>Ready to experience the perks? Click below to start your application process!</p>
+    <a href="/signup" class="apply-btn">Apply Now</a>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/features">Features</a>
+      <a href="/signup">Apply Now</a>
+      <a href="/contact">Contact Us</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+    <p>&copy; 2024 Youp. All rights reserved.</p>
+  </footer>
+<script>
+window.addEventListener('scroll', function() {
+  const card = document.getElementById('credit-card');
+  const scrollPosition = window.scrollY;
+
+  // Rotate the credit card on scroll
+  if (scrollPosition > 100) {
+    card.style.transform = 'rotateY(360deg)';
+  } else {
+    card.style.transform = 'rotateY(0deg)';
+  }
+});
+
+window.addEventListener('scroll', function() {
+  const card = document.getElementById('credit-card');
+  const scrollPosition = window.scrollY;
+
+  // Remove the credit card image when the user scrolls beyond a certain point
+  if (scrollPosition > 300) {
+    
+  } else {
+    card.classList.remove('hidden');
+  }
+});
+
+
+</script>
+</body>
+</html>

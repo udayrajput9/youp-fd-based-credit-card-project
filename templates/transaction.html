@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Transfer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+        }
+
+        /* Main Content Styling */
+        .main-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .main-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #4b3f72;
+        }
+
+        /* Form Styling */
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .form-container label {
+            display: block;
+            font-weight: 600;
+            margin: 10px 0 5px;
+            text-align: left;
+            color: #4b3f72;
+        }
+
+        .form-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container input[type="submit"],
+        .form-container button {
+            background-color: #4b3f72;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .form-container input[type="submit"]:hover,
+        .form-container button:hover {
+            background-color: #ff5e57;
+        }
+
+        /* Message Styling */
+        .messages {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .messages li {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .messages .success {
+            background-color: #28a745;
+        }
+
+        .messages .error {
+            background-color: #dc3545;
+        }
+
+        /* Transaction History Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4b3f72;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Coin Redemption Message */
+        .coin-message {
+            margin-top: 20px;
+            font-weight: 600;
+            color: #4b3f72;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h2>Transfer Money</h2>
+        <div class="form-container">
+            <form method="POST" action="/transaction">
+                <label for="name">Recipient's Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="bank">Bank Name:</label>
+                <input type="text" id="bank" name="bank" required>
+
+                <label for="account_number">Account Number:</label>
+                <input type="text" id="account_number" name="account_number" required>
+
+                <label for="amount">Amount:</label>
+                <input type="number" step="0.01" id="amount" name="amount" required>
+
+                <input type="submit" value="Transfer">
+            </form>
+        </div>
+
+        <hr>
+        <h2>Total Coins: {{ total_coins }}</h2>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Redeem Button -->
+        {% if total_coins >= 500 %}
+        <form method="POST" action="/redeem">
+            <input type="hidden" name="redeem" value="true">
+            <button type="submit">Redeem 500 Coins</button>
+        </form>
+        {% else %}
+        <p class="coin-message">You need at least 500 coins to redeem.</p>
+        {% endif %}
+
+        <hr>
+        <h2>Transaction History</h2>
+        <table>
+            <tr>
+                <th>Recipient's Name</th>
+                <th>Bank Name</th>
+                <th>Account Number</th>
+                <th>Amount</th>
+                <th>Coins Earned</th>
+            </tr>
+            {% if transactions %}
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.recipient_name }}</td>
+                    <td>{{ transaction.bank_name }}</td>
+                    <td>{{ transaction.account_number }}</td>
+                    <td>{{ transaction.amount }}</td>
+                    <td>{{ transaction.coins_earned }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No transactions found.</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+</body>
+</html>

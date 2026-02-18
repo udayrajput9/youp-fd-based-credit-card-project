@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Youp Credit Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #4b3f72;
+            color: white;
+            padding: 5px 0;
+            
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .header nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .header nav ul li {
+            margin: 0 15px;
+        }
+
+        .header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .header nav ul li a:hover {
+            color: #ff5e57;
+        }
+
+        /* Sign In Form Styling */
+        .signin-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background: linear-gradient(to right, #6a3093, #a044ff);
+            color: white;
+        }
+
+        .signin-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            color: #4b3f72;
+        }
+
+        .signin-form h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .signin-form label {
+            font-weight: 600;
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        .signin-form input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .signin-form button {
+            background-color: #4b3f72;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .signin-form button:hover {
+            background-color: #ff5e57;
+        }
+
+        .signin-form .messages {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .signin-form .messages li {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .messages .success {
+            background-color: #28a745;
+        }
+
+        .messages .error {
+            background-color: #dc3545;
+        }
+
+        .messages .warning {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer .footer-links a {
+            color: #ff5e57;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer .footer-links a:hover {
+            color: #ff1a1a;
+            text-decoration: underline;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h1>Youp</h1>
+        </div>
+
+    </header>
+
+    <!-- Sign In Section -->
+    <section class="signin-container">
+        <form class="signin-form" method="POST">
+            <h2>Sign In to Youp</h2>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Sign In</button>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="messages">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="features.html">Features</a>
+            <a href="/signup">Apply Now</a>
+            <a href="/contact">Contact Us</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <p>&copy; 2024 Youp. All rights reserved.</p>
+    </footer>
+</body>
+</html>

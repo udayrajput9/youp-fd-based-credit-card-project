@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+            text-align: center;
+        }
+
+        /* Dashboard Header */
+        header {
+            background-color: #4b3f72;
+            color: #ffffff;
+            padding: 20px;
+            font-size: 24px;
+            text-align: left;
+        }
+
+        /* Main Container */
+        .dashboard-container {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Credit Card Box Styling */
+        .credit-card {
+            width: 400px;
+            height: 220px;
+            background: linear-gradient(135deg, #4b3f72, #ff5e57);
+            border-radius: 15px;
+            color: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: flipIn 1s ease-out;
+        }
+
+        .credit-card .card-number {
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .credit-card .cardholder-name {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .credit-card .expiry {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+        }
+
+        /* Flip Animation */
+        @keyframes flipIn {
+            from {
+                transform: rotateY(90deg);
+                opacity: 0;
+            }
+            to {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            margin-top: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            background-color: #4b3f72;
+            color: #ffffff;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #ff5e57;
+        }
+
+        /* Welcome Message */
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #4b3f72;
+        }
+
+        /* User Info Styling */
+        .user-info {
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* Extra Info Section */
+        .extra-info {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>User Dashboard</header>
+    <div class="dashboard-container">
+        <h1>Welcome, {{ user['username'] }}!</h1>
+        <div class="user-info">
+            <p>Your email: {{ user['email'] }}</p>
+        </div>
+
+        <!-- Animated Credit Card Box -->
+        <div class="credit-card">
+           
+            <div class="card-number">Card Number: {{ user['balance'] }}</div>
+            <div class="card-number">Credit Limit: {{ user['credit'] }}</div>
+            <div class="cardholder-name">Card Holder: {{ user['name']}}</div>
+            <div class="expiry">Valid Thru: 12/24</div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="/transaction">Transaction & History</a>
+            <a href="/logout">Log Out</a>
+        </div>
+
+        <!-- Extra Information Section -->
+        <div class="extra-info">
+            <h2>Recent Activities</h2>
+            <p>No recent activities found. Start your transactions now!</p>
+        </div>
+    </div>
+</body>
+</html>
