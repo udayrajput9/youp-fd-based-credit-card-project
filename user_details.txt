@@ -1,19 +1,5 @@
 Username: chaynika, Email: chay@gmail.com, Password: 22, Aadhar: 7545, PAN: 56544, Mobile: 2345
 Username: chaynika, Email: chay@gmail.com, Password: dss, Aadhar: 754541545554, PAN: ABCDE12345, Mobile: 2345243242
 Username: chaynika, Email: chay@gmail.com, Password: dss, Aadhar: 754541545554, PAN: ABCDE12345, Mobile: 2345243242
-Username: Uday Pratap Singh, Email: udaypratapsinghv@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE12364, Mobile: 9555940743
-Username: Uday Pratap Singh, Email: udaypratapsinghv@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE12364, Mobile: 9555940743
-Username: Uday Pratap Singh, Email: udaypratapsinghv@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE12364, Mobile: 9555940743
-Username: Uday Pratap Singh, Email: udaypratapsinghv@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE12364, Mobile: 9555940743
-Username: Uday Pratap Singh, Email: udaypratapsinghv@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE1236E, Mobile: 9555940743
-Username: Uday Pratap Singh, Email: udaypratapsinghv@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE1236F, Mobile: 9555940743
-Username: Uday Pratap Singh, Email: udaypratapsinghv@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE1234E, Mobile: 9555940743
-Username: Shweta Singh, Email: shweta@gmail.com, FD: 10000,Aadhar: 563912314656, PAN: ABCDE1234E, Mobile: 9696267221
-Username: Shweta Singhash, Email: shweta@gmail.com, FD: 10000,Aadhar: 563912314656, PAN: ABCDE1234E, Mobile: 9696267221
-Username: Shweta Singh, Email: shweta@gmail.com, FD: 10000,Aadhar: 563912314656, PAN: ABCDE1234E, Mobile: 9696267221
-Username: Shweta Singh, Email: shweta@gmail.com, FD: 10000,Aadhar: 563912314656, PAN: ABCDE1234E, Mobile: 9696267221
-Username: sss, Email: shwta@gamil.com, FD: 2000,Aadhar: 569721126756, PAN: ABCDE1234E, Mobile: 1236549123
-Username: Shweta Singh, Email: shweta@gmail.com, FD: 300,Aadhar: 123456789123, PAN: ABCDE1234E, Mobile: 9555940743
-Username: Uday, Email: uday@gmail.com, FD: 300,Aadhar: 123456789123, PAN: ABCDE1234E, Mobile: 9555940743
-Username: Uday, Email: uday@gmail.com, FD: 300,Aadhar: 123456789123, PAN: ABCDE1234E, Mobile: 9555940743
-Username: Uday, Email: uday@gmail.com, FD: 300,Aadhar: 123456789123, PAN: ABCDE1234E, Mobile: 9555940743
+Username: Uday Pratap Singh, Email: udaypratap@gmail.com, FD: 100,Aadhar: 123456789123, PAN: ABCDE12364, Mobile: 9525552043
+
